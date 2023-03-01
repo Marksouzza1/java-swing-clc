@@ -1,6 +1,3 @@
-import com.sun.tools.javac.Main;
-
-import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,7 +17,7 @@ public class CalcTela extends JFrame{
     private JButton btn7;
     private JButton btn8;
     private JButton btn9;
-    private JButton btnDivisao;
+    private JButton btnDivsao;
     private JButton btnPorcentagem;
     private JButton bntLimpar;
     private JButton btn0;
@@ -162,6 +159,42 @@ public class CalcTela extends JFrame{
 
         });
 
+        btnSubtracao.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                valor1 = Double.parseDouble((txtSaida.getText()));
+                txtSaida.setText("");
+                operador = "-";
+
+
+            }
+
+        });
+
+        btnDivsao.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                valor1 = Double.parseDouble((txtSaida.getText()));
+                txtSaida.setText("");
+                operador = "/";
+
+
+            }
+
+        });
+
+        btnMultiplicacao.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                valor1 = Double.parseDouble((txtSaida.getText()));
+                txtSaida.setText("");
+                operador = "*";
+
+
+            }
+
+        });
+
         btnPorcentagem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -193,7 +226,7 @@ public class CalcTela extends JFrame{
         btnResultado.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                valor1 = Double.parseDouble((txtSaida.getText()));
+                valor2 = Double.parseDouble((txtSaida.getText()));
 
                 switch (operador){
                     case"+":
@@ -201,10 +234,10 @@ public class CalcTela extends JFrame{
                         break;
 
                     case "-":
-                        txtSaida.setText(String.valueOf(valor1-valor2));
+                        txtSaida.setText(String.valueOf(valor1 - valor2));
                         break;
                     case "*":
-                        txtSaida.setText(String.valueOf(valor1*valor2));
+                        txtSaida.setText(String.valueOf(valor1 * valor2));
                     case "/":
                         txtSaida.setText(String.valueOf(valor1/valor2));
                         break;
